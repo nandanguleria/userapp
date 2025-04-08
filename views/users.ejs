@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Users</title>
+  <style>
+    table {
+      width: 80%;
+      margin: auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center">Registered Users</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td><%= user.age %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
