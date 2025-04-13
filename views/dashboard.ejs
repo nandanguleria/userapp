@@ -283,6 +283,42 @@
     }
 
     cells.forEach(cell => cell.addEventListener("click", handleCellClick));
+
+function analyzeSentiment() {
+  const text = document.getElementById('sentimentInput').value.toLowerCase();
+  const output = document.getElementById('sentimentOutput');
+
+  if (!text.trim()) {
+    output.textContent = "Please enter some text to analyze.";
+    return;
+  }
+
+  // Simple rule-based mock sentiment analysis
+  const positiveWords = ["happy", "good", "great", "awesome", "fantastic", "love", "excellent"];
+  const negativeWords = ["sad", "bad", "angry", "hate", "terrible", "worst", "horrible"];
+
+  let score = 0;
+
+  positiveWords.forEach(word => {
+    if (text.includes(word)) score++;
+  });
+
+  negativeWords.forEach(word => {
+    if (text.includes(word)) score--;
+  });
+
+  if (score > 0) {
+    output.textContent = "Sentiment: Positive 😊";
+    output.style.color = "green";
+  } else if (score < 0) {
+    output.textContent = "Sentiment: Negative 😠";
+    output.style.color = "red";
+  } else {
+    output.textContent = "Sentiment: Neutral 😐";
+    output.style.color = "#555";
+  }
+}
+
   </script>
 </body>
 </html>
